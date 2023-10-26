@@ -15,15 +15,16 @@ plugins:
 provider:
  name: aws
  runtime: nodejs18.x
+ stage: api
  
 package:
   individually: true
 
 functions:
  main:
-   handler: src/lambda.handler
-   events:
-     - http:
-         method: any
-         # path: /{any+}nvm list
-         path: /{proxy+}
+  handler: src/lambda.handler
+  events:
+    - http:
+        method: any
+        # path: /{any+}nvm list
+        path: /{proxy+}
